@@ -1,0 +1,81 @@
+PODS:
+  - Alamofire (5.4.3)
+  - ChofyExtensions (0.1.0):
+    - Alamofire (~> 5.2)
+    - RxCocoa (= 6.1.0)
+    - RxSwift (= 6.1.0)
+    - SDWebImage (~> 5.0)
+  - ChofyStyleGuide (0.1.0):
+    - ChofyExtensions
+    - lottie-ios
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - lottie-ios (3.2.3)
+  - MainApp (0.1.0):
+    - ChofyExtensions
+    - ChofyStyleGuide
+    - IGListKit (~> 4.0.0)
+    - RxCocoa (= 6.1.0)
+    - RxSwift (= 6.1.0)
+    - SVProgressHUD
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - ChofyExtensions (from `../libraries/ChofyExtensions`)
+  - ChofyStyleGuide (from `../libraries/ChofyStyleGuide`)
+  - IGListKit (~> 4.0.0)
+  - lottie-ios
+  - MainApp (from `../libraries/MainApp`)
+  - RxCocoa (= 6.1.0)
+  - RxSwift (= 6.1.0)
+  - SDWebImage (~> 5.0)
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IGListDiffKit
+    - IGListKit
+    - lottie-ios
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SVProgressHUD
+
+EXTERNAL SOURCES:
+  ChofyExtensions:
+    :path: "../libraries/ChofyExtensions"
+  ChofyStyleGuide:
+    :path: "../libraries/ChofyStyleGuide"
+  MainApp:
+    :path: "../libraries/MainApp"
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  ChofyExtensions: 9aea800f87821095f31ec0fcf87a9115875250d2
+  ChofyStyleGuide: 21506c83796ec25b19ebcdbf8caa2318f31a27a4
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  MainApp: c06a435343156829914b99c4fb6c36f33bec1a53
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 120240087b21d407f72b37fd275f3349c4f13116
+
+COCOAPODS: 1.10.1

@@ -1,0 +1,6 @@
+use_frameworks!
+target 'MainApp_Tests' do
+  pod 'MainApp', :path => '../'
+  
+  
+end

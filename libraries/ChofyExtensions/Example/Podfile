@@ -1,0 +1,6 @@
+use_frameworks!
+target 'ChofyExtensions_Tests' do
+  pod 'ChofyExtensions', :path => '../'
+  
+  
+end

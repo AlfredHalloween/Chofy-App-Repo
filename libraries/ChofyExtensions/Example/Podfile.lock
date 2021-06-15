@@ -1,0 +1,16 @@
+PODS:
+  - ChofyExtensions (0.1.0)
+
+DEPENDENCIES:
+  - ChofyExtensions (from `../`)
+
+EXTERNAL SOURCES:
+  ChofyExtensions:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ChofyExtensions: 728b32598b4707c91cf1eddb53b8b5c3fd2e5f0e
+
+PODFILE CHECKSUM: 2d0419be7fad2fb27d15120125332c48a28ee678
+
+COCOAPODS: 1.10.1

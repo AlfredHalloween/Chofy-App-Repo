@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vNn-nR-pe2" customClass="HomeSectionHeaderView" customModule="MainApp">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="203"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-4G-M6e">
+                    <rect key="frame" x="16" y="52" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quK-nf-ECS">
+                    <rect key="frame" x="16" y="81" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fac-lg-U6x"/>
+            <constraints>
+                <constraint firstItem="quK-nf-ECS" firstAttribute="leading" secondItem="fac-lg-U6x" secondAttribute="leading" constant="16" id="H1H-9B-aVv"/>
+                <constraint firstItem="fac-lg-U6x" firstAttribute="trailing" secondItem="quK-nf-ECS" secondAttribute="trailing" constant="16" id="HPy-IT-zce"/>
+                <constraint firstItem="jm2-4G-M6e" firstAttribute="leading" secondItem="fac-lg-U6x" secondAttribute="leading" constant="16" id="UDs-bP-QHr"/>
+                <constraint firstItem="fac-lg-U6x" firstAttribute="bottom" secondItem="quK-nf-ECS" secondAttribute="bottom" priority="250" constant="8" id="f0s-t8-acF"/>
+                <constraint firstItem="jm2-4G-M6e" firstAttribute="top" secondItem="fac-lg-U6x" secondAttribute="top" constant="8" id="k1y-Ll-Esg"/>
+                <constraint firstItem="quK-nf-ECS" firstAttribute="top" secondItem="jm2-4G-M6e" secondAttribute="bottom" constant="8" id="klG-M3-uTA"/>
+                <constraint firstItem="fac-lg-U6x" firstAttribute="trailing" secondItem="jm2-4G-M6e" secondAttribute="trailing" constant="16" id="meK-0p-DMT"/>
+            </constraints>
+            <connections>
+                <outlet property="subtitleHeader" destination="quK-nf-ECS" id="2Vl-rQ-1GL"/>
+                <outlet property="titleHeader" destination="jm2-4G-M6e" id="JCN-iD-TEZ"/>
+            </connections>
+            <point key="canvasLocation" x="-226.08695652173915" y="-169.75446428571428"/>
+        </collectionReusableView>
+    </objects>
+</document>

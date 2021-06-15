@@ -1,0 +1,6 @@
+use_frameworks!
+target 'ChofyStyleGuide_Tests' do
+  pod 'ChofyStyleGuide', :path => '../'
+  
+  
+end

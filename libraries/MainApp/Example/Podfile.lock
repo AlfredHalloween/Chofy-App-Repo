@@ -1,0 +1,16 @@
+PODS:
+  - MainApp (0.1.0)
+
+DEPENDENCIES:
+  - MainApp (from `../`)
+
+EXTERNAL SOURCES:
+  MainApp:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MainApp: 0b11b4dd4b32cedcf093f75a6030659b2943d4bd
+
+PODFILE CHECKSUM: 3d3cb56daf8420c7f6dc633428bbd634a123e4ec
+
+COCOAPODS: 1.10.1

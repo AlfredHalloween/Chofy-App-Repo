@@ -1,0 +1,16 @@
+PODS:
+  - ChofyStyleGuide (0.1.0)
+
+DEPENDENCIES:
+  - ChofyStyleGuide (from `../`)
+
+EXTERNAL SOURCES:
+  ChofyStyleGuide:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ChofyStyleGuide: 20f9315d0dbf0fcf664c37478b4e95f7e13a86d6
+
+PODFILE CHECKSUM: 8e62182c7229b186cf889c0f7a86dcdffa29e1ae
+
+COCOAPODS: 1.10.1

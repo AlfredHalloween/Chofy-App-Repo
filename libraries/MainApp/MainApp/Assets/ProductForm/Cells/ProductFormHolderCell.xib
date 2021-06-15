@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fqB-eh-fDN" customClass="ProductFormHolderCell" customModule="MainApp">
+            <rect key="frame" x="0.0" y="0.0" width="574" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9oF-ra-XtY">
+                <rect key="frame" x="0.0" y="0.0" width="574" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mRs-3I-PDw">
+                        <rect key="frame" x="16" y="8" width="542" height="72.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKH-oT-h0o">
+                                <rect key="frame" x="0.0" y="0.0" width="542" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4gv-Kw-7ey">
+                                <rect key="frame" x="0.0" y="24.5" width="542" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bCv-h1-tMi">
+                                        <rect key="frame" x="0.0" y="7" width="542" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elg-Jp-mDh">
+                                        <rect key="frame" x="0.0" y="12" width="24" height="24"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fb5-gz-htm">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-Sr-k7x">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Fb5-gz-htm" firstAttribute="top" secondItem="elg-Jp-mDh" secondAttribute="top" id="0lG-Su-x2V"/>
+                                            <constraint firstItem="Fb5-gz-htm" firstAttribute="leading" secondItem="elg-Jp-mDh" secondAttribute="leading" id="MCv-Hi-6hz"/>
+                                            <constraint firstItem="Aa8-Sr-k7x" firstAttribute="top" secondItem="elg-Jp-mDh" secondAttribute="top" id="NNJ-4B-vfg"/>
+                                            <constraint firstAttribute="trailing" secondItem="Aa8-Sr-k7x" secondAttribute="trailing" id="OhM-L5-OfI"/>
+                                            <constraint firstAttribute="bottom" secondItem="Aa8-Sr-k7x" secondAttribute="bottom" id="Qwk-et-y7v"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fb5-gz-htm" secondAttribute="bottom" id="TJK-N8-yJJ"/>
+                                            <constraint firstItem="Aa8-Sr-k7x" firstAttribute="leading" secondItem="elg-Jp-mDh" secondAttribute="leading" id="r3g-Wf-up0"/>
+                                            <constraint firstAttribute="width" constant="24" id="sHs-v3-24u"/>
+                                            <constraint firstAttribute="height" constant="24" id="wiJ-B2-Ulf"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fb5-gz-htm" secondAttribute="trailing" id="x43-O2-2m4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Sex-Up-c7x"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mRs-3I-PDw" firstAttribute="leading" secondItem="9oF-ra-XtY" secondAttribute="leading" constant="16" id="EDo-mw-Ehn"/>
+                    <constraint firstItem="mRs-3I-PDw" firstAttribute="top" secondItem="9oF-ra-XtY" secondAttribute="top" constant="8" id="Vpr-u6-nYl"/>
+                    <constraint firstAttribute="bottom" secondItem="mRs-3I-PDw" secondAttribute="bottom" priority="250" constant="8" id="nCU-Y9-32f"/>
+                    <constraint firstAttribute="trailing" secondItem="mRs-3I-PDw" secondAttribute="trailing" constant="16" id="pXC-MQ-7oN"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="574" height="113"/>
+            <connections>
+                <outlet property="barCodeBtn" destination="Aa8-Sr-k7x" id="TB2-nF-Cfv"/>
+                <outlet property="barCodeContainer" destination="elg-Jp-mDh" id="l9f-aa-Vl3"/>
+                <outlet property="iconBarCode" destination="Fb5-gz-htm" id="5ZU-hj-Ffy"/>
+                <outlet property="placeholder" destination="YKH-oT-h0o" id="zcF-Sc-avB"/>
+                <outlet property="textfield" destination="bCv-h1-tMi" id="a7F-lI-Xi0"/>
+            </connections>
+            <point key="canvasLocation" x="218.84057971014494" y="7.03125"/>
+        </collectionViewCell>
+    </objects>
+</document>
