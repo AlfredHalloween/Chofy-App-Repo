@@ -15,6 +15,7 @@ protocol SearchDataSourceDelegate: AnyObject {
 
 final class SearchDataSource: NSObject {
     
+    // MARK: Properties
     private var delegate: SearchDataSourceDelegate?
     var sections: [ListDiffable] = []
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ChofyStyleGuide
 
 protocol SplashViewOutput {
     func didLoad()
@@ -13,6 +14,7 @@ protocol SplashViewOutput {
 
 final class SplashViewController: UIViewController {
     
+    // MARK: Properties
     private let presenter: SplashViewOutput
     
     init(with presenter: SplashViewOutput) {
@@ -27,19 +29,7 @@ final class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewBackground(color: ChofyColors.screenBackground)
         presenter.didLoad()
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

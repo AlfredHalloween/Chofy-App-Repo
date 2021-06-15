@@ -10,6 +10,7 @@ import IGListKit
 
 final class SearchPlaceholderSectionController: ListSectionController {
     
+    // MARK: Properties
     private var diffable: SearchPlaceholderDiffable?
     
     override func sizeForItem(at index: Int) -> CGSize {

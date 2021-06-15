@@ -14,8 +14,8 @@ protocol SplashPresenterDelegate: SplashViewOutput {
 
 final class SplashPresenter {
     
+    // MARK: Properties
     private let disposeBag: DisposeBag = DisposeBag()
-    
     private let wireframe: SplashWireframeDelegate
     
     init(with wireframe: SplashWireframe) {

@@ -9,6 +9,8 @@ import Foundation
 import IGListKit
 
 final class SearchResultsDiffable: ListDiffable {
+    
+    // MARK: Properties
     var products: [Product]
     
     init(products: [Product]) {

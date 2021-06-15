@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import ChofyStyleGuide
 
 protocol SearchWireframeDelegate {
     var uploadObservable: Observable<Void> { get }
@@ -16,10 +17,12 @@ protocol SearchWireframeDelegate {
     func showQRScreen(completion: @escaping QRReaderCompletion)
     func showProductDetail(product: Product)
     func showNewProduct(barCode: String?)
+    func showToast(message: String, isWarning: Bool)
 }
 
 final class SearchWireframe {
     
+    // MARK: Properties
     private weak var baseController: UIViewController?
     private var navigation: UINavigationController?
     private let uploadSubject: PublishSubject = PublishSubject<Void>()
@@ -64,6 +67,10 @@ extension SearchWireframe: SearchWireframeDelegate {
                                                           productSubject: uploadSubject,
                                                           fromNavigation: false)
         module.showEditProduct()
+    }
+    
+    func showToast(message: String, isWarning: Bool) {
+        ChofyToast.showToast(title: message, isWarning: isWarning)
     }
 }
 

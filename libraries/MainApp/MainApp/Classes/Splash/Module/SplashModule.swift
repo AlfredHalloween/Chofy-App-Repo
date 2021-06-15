@@ -9,6 +9,7 @@ import Foundation
 
 open class SplashModule {
     
+    // MARK: Properties
     private let presenter: SplashPresenterDelegate
     
     public init(with window: UIWindow) {

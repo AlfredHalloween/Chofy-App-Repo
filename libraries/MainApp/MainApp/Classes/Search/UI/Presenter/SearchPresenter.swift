@@ -18,6 +18,7 @@ protocol SearchPresenterDelegate: SearchViewOutput {
 
 final class SearchPresenter {
     
+    // MARK: Properties
     private let disposeBag: DisposeBag = DisposeBag()
     private let wireframe: SearchWireframeDelegate
     private let interactor: SearchInteractor
@@ -74,7 +75,7 @@ extension SearchPresenter: SearchPresenterDelegate {
                     if error.statusCode == .notFound {
                         self.wireframe.showNewProduct(barCode: code)
                     } else {
-                        print(error.errorDescription)
+                        self.wireframe.showToast(message: error.localizedDescription, isWarning: true)
                     }
                 }).disposed(by: self.disposeBag)
         }

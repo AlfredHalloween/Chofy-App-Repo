@@ -14,6 +14,7 @@ protocol SearchResultsSectionControllerDelegate: NSObject {
 
 final class SearchResultsSectionController: ListSectionController {
     
+    // MARK: Properties
     private var delegate: SearchResultsSectionControllerDelegate?
     private var searchDiffable: SearchResultsDiffable?
     

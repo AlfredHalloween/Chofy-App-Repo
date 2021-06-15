@@ -9,6 +9,8 @@ import Foundation
 import IGListKit
 
 final class SearchPlaceholderDiffable: ListDiffable {
+    
+    // MARK: Properties
     let idAnimation: String
     let subtitle: String
     

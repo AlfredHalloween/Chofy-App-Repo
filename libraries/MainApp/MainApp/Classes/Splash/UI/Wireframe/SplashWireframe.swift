@@ -14,13 +14,13 @@ protocol SplashWireframeDelegate {
 
 final class SplashWireframe {
     
+    // MARK: Properties
     private let window: UIWindow
     private weak var topController: UIViewController?
     
     init(with window: UIWindow) {
         self.window = window
     }
-    
 }
 
 extension SplashWireframe: SplashWireframeDelegate {

@@ -10,8 +10,10 @@ import ChofyStyleGuide
 
 final class SearchPlaceholderCell: UICollectionViewCell {
     
+    // MARK: Properties
     static let identifier: String = String(describing: SearchPlaceholderCell.self)
     
+    // MARK: Outlets
     @IBOutlet private weak var animationContainer: UIView! {
         didSet {
             animationContainer.backgroundColor = UIColor.clear
