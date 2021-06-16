@@ -31,19 +31,13 @@ final class GenericSelectorOptionSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        let cellId = String(describing: GenericSelectorOptionCell.self)
-        guard let context = collectionContext,
-              let items = diffable?.items,
-              let cell = context.dequeueReusableCell(withNibName: cellId,
-                                                     bundle: MainBundle.bundle,
-                                                     for: self,
-                                                     at: index) as? GenericSelectorOptionCell else {
-            return UICollectionViewCell()
+        let cell: GenericSelectorOptionCell = reuse(for: index, with: MainBundle.bundle)
+        if let items: [GenericSelectorItem] = diffable?.items {
+            let item: GenericSelectorItem = items[index]
+            cell.setup(image: item.imageSelector,
+                       name: item.nameSelector,
+                       isLast: (items.count - 1) == index)
         }
-        let item = items[index]
-        cell.setup(image: item.imageSelector,
-                   name: item.nameSelector,
-                   isLast: (items.count - 1) == index)
         return cell
     }
     

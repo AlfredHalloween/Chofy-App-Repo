@@ -11,6 +11,7 @@ import ChofyStyleGuide
 
 final class GenericSelectorOptionCell: UICollectionViewCell {
     
+    // MARK: Outlets
     @IBOutlet private weak var containerImage: UIView! {
         didSet {
             containerImage.roundedView()

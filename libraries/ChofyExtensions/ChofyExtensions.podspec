@@ -36,6 +36,7 @@ TODO: Add long description of the pod here.
   s.dependency 'RxSwift', '6.1.0'
   s.dependency 'RxCocoa', '6.1.0'
   s.dependency 'Alamofire', '~> 5.2'
+  s.dependency 'IGListKit', '~> 4.0.0'
   
   s.resource_bundles = {
     'ChofyExtensionsResources' => [

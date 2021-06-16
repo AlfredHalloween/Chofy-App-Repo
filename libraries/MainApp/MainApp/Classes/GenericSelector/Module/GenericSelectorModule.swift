@@ -11,6 +11,7 @@ typealias GenericSelectorCompletion = (GenericSelectorItem) -> ()
 
 final class GenericSelectorModule {
     
+    // MARK: Properties
     private let presenter: GenericSelectorPresenterDelegate
     
     init(with navigation: UINavigationController,

@@ -26,15 +26,10 @@ final class SearchPlaceholderSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext,
-              let item = diffable,
-              let cell = context.dequeueReusableCell(withNibName: SearchPlaceholderCell.identifier,
-                                                     bundle: MainBundle.bundle,
-                                                     for: self,
-                                                     at: index) as? SearchPlaceholderCell else {
-            return UICollectionViewCell()
+        let cell: SearchPlaceholderCell = reuse(for: index, with: MainBundle.bundle)
+        if let item = diffable {
+            cell.setup(message: item.subtitle)
         }
-        cell.setup(message: item.subtitle)
         return cell
     }
     

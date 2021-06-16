@@ -24,14 +24,7 @@ final class ProductDetailDescriptionSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext else {
-            return UICollectionViewCell()
-        }
-        let cell: ProductDetailDescriptionCell = context
-            .dequeueReusableCell(withNibName: ProductDetailDescriptionCell.identifier,
-                                 bundle: MainBundle.bundle,
-                                 for: self,
-                                 at: index) as! ProductDetailDescriptionCell
+        let cell: ProductDetailDescriptionCell = reuse(for: index, with: MainBundle.bundle)
         if let item = diffable {
             cell.setup(title: item.title, description: item.description)
         }

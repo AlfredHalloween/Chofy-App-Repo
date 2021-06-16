@@ -9,6 +9,8 @@ import Foundation
 import IGListKit
 
 final class GenericSelectorDiffable: ListDiffable {
+    
+    // MARK: Properties
     var items: [GenericSelectorItem]
     
     init(items: [GenericSelectorItem]) {

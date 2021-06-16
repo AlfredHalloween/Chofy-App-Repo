@@ -34,21 +34,16 @@ final class SearchResultsSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext,
-              let items = searchDiffable?.products,
-              let cell = context.dequeueReusableCell(withNibName: SearchResultsCell.identifier,
-                                                     bundle: MainBundle.bundle,
-                                                     for: self,
-                                                     at: index) as? SearchResultsCell else {
-            return UICollectionViewCell()
+        let cell: SearchResultsCell = reuse(for: index, with: MainBundle.bundle)
+        if let items = searchDiffable?.products {
+            let product = items[index]
+            let price: Double = product.price ?? 0.0
+            cell.setup(image: product.image ?? "",
+                       name: product.name ?? "",
+                       description: product.company?.name ?? "",
+                       price: price.toCurrency(),
+                       isLast: (items.count - 1) == index)
         }
-        let product = items[index]
-        let price: Double = product.price ?? 0.0
-        cell.setup(image: product.image ?? "",
-                   name: product.name ?? "",
-                   description: product.company?.name ?? "",
-                   price: price.toCurrency(),
-                   isLast: (items.count - 1) == index)
         return cell
     }
     

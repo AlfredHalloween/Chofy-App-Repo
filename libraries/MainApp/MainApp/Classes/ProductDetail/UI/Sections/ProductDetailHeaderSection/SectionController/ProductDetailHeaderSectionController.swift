@@ -19,18 +19,9 @@ final class ProductDetailHeaderSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext else {
-            return UICollectionViewCell()
-        }
-        let cell: ProductDetailHeaderSectionCell = context
-            .dequeueReusableCell(withNibName: ProductDetailHeaderSectionCell.identifier,
-                                 bundle: MainBundle.bundle,
-                                 for: self,
-                                 at: index) as! ProductDetailHeaderSectionCell
+        let cell: ProductDetailHeaderSectionCell = reuse(for: index, with: MainBundle.bundle)
         if let item = diffable {
-            cell.setup(image: item.image,
-                       name: item.name,
-                       price: item.price.toCurrency())
+            cell.setup(image: item.image, name: item.name, price: item.price.toCurrency())
         }
         return cell
     }

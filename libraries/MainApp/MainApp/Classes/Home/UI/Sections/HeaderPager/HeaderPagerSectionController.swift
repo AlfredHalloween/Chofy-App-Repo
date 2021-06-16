@@ -33,16 +33,11 @@ final class HeaderPagerSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext,
-              let pages = pager?.pages,
-              let cell: HeaderPagerCell = context.dequeueReusableCell(withNibName: HeaderPagerCell.identifier,
-                                                                      bundle: MainBundle.bundle,
-                                                                      for: self,
-                                                                      at: index) as? HeaderPagerCell else {
-            return UICollectionViewCell()
+        let cell: HeaderPagerCell = reuse(for: index, with: MainBundle.bundle)
+        if let pages = pager?.pages {
+            cell.delegate = self
+            cell.setup(pages: pages)
         }
-        cell.delegate = self
-        cell.setup(pages: pages)
         return cell
     }
     

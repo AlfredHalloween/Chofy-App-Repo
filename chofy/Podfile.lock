@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.3)
   - ChofyExtensions (0.1.0):
     - Alamofire (~> 5.2)
+    - IGListKit (~> 4.0.0)
     - RxCocoa (= 6.1.0)
     - RxSwift (= 6.1.0)
     - SDWebImage (~> 5.0)
@@ -64,7 +65,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  ChofyExtensions: 9aea800f87821095f31ec0fcf87a9115875250d2
+  ChofyExtensions: fbdc2d09e559a47a8d59aa3cc0db5c3965002aa4
   ChofyStyleGuide: 21506c83796ec25b19ebcdbf8caa2318f31a27a4
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7

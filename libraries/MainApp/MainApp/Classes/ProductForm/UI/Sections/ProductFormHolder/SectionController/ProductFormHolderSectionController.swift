@@ -77,13 +77,7 @@ extension ProductFormHolderSectionController: ProductFormSelectorCellDelegate {
 private extension ProductFormHolderSectionController {
     
     func getEditableCell(index: Int, item: EditProductDiffable) -> UICollectionViewCell {
-        guard let cell: ProductFormHolderCell = collectionContext?
-                .dequeueReusableCell(withNibName: ProductFormHolderCell.cellIdentifier,
-                                     bundle: MainBundle.bundle,
-                                     for: self,
-                                     at: index) as? ProductFormHolderCell else {
-            return UICollectionViewCell()
-        }
+        let cell: ProductFormHolderCell = reuse(for: index, with: MainBundle.bundle)
         cell.setup(identifier: item.identifier.rawValue,
                    text: item.text,
                    placeholderText: item.identifier.label,
@@ -95,30 +89,17 @@ private extension ProductFormHolderSectionController {
     }
     
     func getEditableLargeCell(index: Int, item: EditProductDiffable) -> UICollectionViewCell {
-        guard let cell: ProductFormLargeHolderCell = collectionContext?
-                .dequeueReusableCell(withNibName: ProductFormLargeHolderCell.cellIdentifier,
-                                     bundle: MainBundle.bundle,
-                                     for: self,
-                                     at: index) as? ProductFormLargeHolderCell else {
-            return UICollectionViewCell()
-        }
+        let cell: ProductFormLargeHolderCell = reuse(for: index, with: MainBundle.bundle)
         cell.setup(identifier: item.identifier.rawValue, title: item.identifier.label, description: item.text)
         cell.delegate = self
         return cell
     }
     
     func getSelectorCell(index: Int, item: EditProductDiffable) -> UICollectionViewCell {
-        guard let cell: ProductFormSelectorCell = collectionContext?
-                .dequeueReusableCell(withNibName: ProductFormSelectorCell.identifier,
-                                     bundle: MainBundle.bundle,
-                                     for: self,
-                                     at: index) as? ProductFormSelectorCell else {
-            return UICollectionViewCell()
-        }
+        let cell: ProductFormSelectorCell = reuse(for: index, with: MainBundle.bundle)
         cell.setup(placeholder: item.identifier.label,
                    name: item.text,
                    isEditable: item.identifier.IsEditableCell)
-        cell.delegate = self
         return cell
     }
 }

@@ -33,15 +33,10 @@ final class HomeSectionsSectionController: ListSectionController {
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
-        guard let context = collectionContext,
-              let item = diffable?.sections[index],
-              let cell = context.dequeueReusableCell(withNibName: HomeSectionCell.identifier,
-                                                     bundle: MainBundle.bundle,
-                                                     for: self,
-                                                     at: index) as? HomeSectionCell else {
-            return UICollectionViewCell()
+        let cell: HomeSectionCell = reuse(for: index, with: MainBundle.bundle)
+        if let item = diffable?.sections[index] {
+            cell.setup(image: item.image, name: item.name)
         }
-        cell.setup(image: item.image, name: item.name)
         return cell
     }
     
@@ -70,20 +65,14 @@ extension HomeSectionsSectionController: ListSupplementaryViewSource {
     }
     
     func viewForSupplementaryElement(ofKind elementKind: String, at index: Int) -> UICollectionReusableView {
-        guard let context = collectionContext,
-              let title = diffable?.title,
-              let subtitle = diffable?.subtitle,
-              let cell = context.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                  for: self,
-                                                                  nibName: HomeSectionHeaderView.identifier,
-                                                                  bundle: MainBundle.bundle,
-                                                                  at: index) as? HomeSectionHeaderView else {
-            return UICollectionReusableView()
-        }
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            cell.setup(title: title, subtitle: subtitle)
-            return cell
+            let header: HomeSectionHeaderView = reuse(for: index, type: elementKind, with: MainBundle.bundle)
+            if let title = diffable?.title,
+               let subtitle = diffable?.subtitle {
+                header.setup(title: title, subtitle: subtitle)
+            }
+            return header
         default:
             return UICollectionReusableView()
         }

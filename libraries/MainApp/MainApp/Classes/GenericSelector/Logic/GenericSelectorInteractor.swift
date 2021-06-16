@@ -19,6 +19,7 @@ protocol GenericSelectorInteractorDelegate {
 
 final class GenericSelectorInteractor {
     
+    // MARK: Properties
     private let itemsSelector: [GenericSelectorItem]
     
     init(itemsSelector: [GenericSelectorItem]) {
