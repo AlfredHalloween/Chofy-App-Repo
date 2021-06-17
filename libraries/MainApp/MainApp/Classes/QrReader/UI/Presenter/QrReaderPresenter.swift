@@ -6,16 +6,22 @@
 //
 
 import Foundation
+import AVFoundation
+import RxSwift
+import RxCocoa
 
-protocol QrReaderPresenterDelegate: QrReaderViewOutput {
-    
+protocol QrReaderPresenterDelegate: QrReaderViewOutput {    
     func showQrReader()
 }
 
 final class QrReaderPresenter {
     
+    // MARK: Properties
     private var completion: QRReaderCompletion?
     private let wireframe: QrReaderWireframeDelegate
+    
+    // MARK: RxProperties
+    private let permissionsStatusGrantedSubject: PublishSubject = PublishSubject<Bool>()
         
     init(with wireframe: QrReaderWireframeDelegate,
          completion: QRReaderCompletion?) {
@@ -25,6 +31,14 @@ final class QrReaderPresenter {
 }
 
 extension QrReaderPresenter: QrReaderPresenterDelegate {
+    
+    var permissionsStatusGranted: Observable<Bool> {
+        return permissionsStatusGrantedSubject
+    }
+    
+    func didLoad() {
+        permissionsStatusGrantedSubject.onNext(AVCaptureDevice.authorizationStatus(for: .video) == .authorized)
+    }
     
     func showQrReader() {
         wireframe.showQrReader(presenter: self)
@@ -41,5 +55,23 @@ extension QrReaderPresenter: QrReaderPresenterDelegate {
             }
             self.completion?(code)
         }
+    }
+    
+    func requestPermissions() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] response in
+                guard let self = self else { return }
+                if response {
+                    
+                } else {
+                    self.qrNotWorking()
+                }
+            }
+        }
+    }
+    
+    func qrNotWorking() {
+        wireframe.showToast(message: "El lector de código de barras no funciona", isWarning: true)
+        wireframe.dismissQr(completion: nil)
     }
 }
