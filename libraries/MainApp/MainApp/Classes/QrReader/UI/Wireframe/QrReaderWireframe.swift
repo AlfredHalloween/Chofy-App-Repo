@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ChofyStyleGuide
 
 typealias QREmptyCompletion = (() -> ())?
 
@@ -13,6 +14,7 @@ protocol QrReaderWireframeDelegate {
     
     func showQrReader(presenter: QrReaderPresenterDelegate)
     func dismissQr(completion: QREmptyCompletion)
+    func showToast(message: String, isWarning: Bool)
 }
 
 final class QrReaderWireframe {
@@ -38,5 +40,9 @@ extension QrReaderWireframe: QrReaderWireframeDelegate {
     func dismissQr(completion: QREmptyCompletion) {
         topController?.dismiss(animated: true,
                                completion: completion)
+    }
+    
+    func showToast(message: String, isWarning: Bool) {
+        ChofyToast.showToast(title: message, isWarning: isWarning)
     }
 }

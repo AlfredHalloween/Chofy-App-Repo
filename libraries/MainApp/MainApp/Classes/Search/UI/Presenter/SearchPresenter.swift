@@ -70,9 +70,9 @@ extension SearchPresenter: SearchPresenterDelegate {
                     self.wireframe.showProductDetail(product: product)
                 }, onFailure: { [weak self] error in
                     SVProgressHUD.dismiss()
-                    guard let self = self,
-                          let error = error as? ErrorResponse else{ return }
-                    if error.statusCode == .notFound {
+                    guard let self = self else { return }
+                    if let error = error as? ErrorResponse,
+                       error.statusCode == .notFound {
                         self.wireframe.showNewProduct(barCode: code)
                     } else {
                         self.wireframe.showToast(message: error.localizedDescription, isWarning: true)

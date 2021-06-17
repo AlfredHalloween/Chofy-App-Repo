@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		019C2EA1DBAC9704131EF6DB /* Pods_Chofy_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC483251C581DC12893469C /* Pods_Chofy_App.framework */; };
 		26FC454D2628918600FF4C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC454C2628918600FF4C43 /* AppDelegate.swift */; };
 		26FC454F2628918600FF4C43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC454E2628918600FF4C43 /* SceneDelegate.swift */; };
 		26FC45512628918600FF4C43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FC45502628918600FF4C43 /* ViewController.swift */; };
 		26FC45542628918600FF4C43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FC45522628918600FF4C43 /* Main.storyboard */; };
 		26FC45562628918900FF4C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26FC45552628918900FF4C43 /* Assets.xcassets */; };
 		26FC45592628918900FF4C43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26FC45572628918900FF4C43 /* LaunchScreen.storyboard */; };
+		BF8719C744EB7ACE092DEB0F /* libPods-Chofy App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AF193FD5E573485BEA9743 /* libPods-Chofy App.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16AF193FD5E573485BEA9743 /* libPods-Chofy App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chofy App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		174131D1583BAACD304C589B /* Pods-Chofy App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chofy App.debug.xcconfig"; path = "Target Support Files/Pods-Chofy App/Pods-Chofy App.debug.xcconfig"; sourceTree = "<group>"; };
 		26FC45492628918600FF4C43 /* Chofy App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chofy App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26FC454C2628918600FF4C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26FC454E2628918600FF4C43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,9 +27,7 @@
 		26FC45552628918900FF4C43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26FC45582628918900FF4C43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26FC455A2628918900FF4C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70178E09BE0ED9EFA213A472 /* Pods-Chofy App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chofy App.debug.xcconfig"; path = "Target Support Files/Pods-Chofy App/Pods-Chofy App.debug.xcconfig"; sourceTree = "<group>"; };
-		866AE7438473D2E57110650F /* Pods-Chofy App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chofy App.release.xcconfig"; path = "Target Support Files/Pods-Chofy App/Pods-Chofy App.release.xcconfig"; sourceTree = "<group>"; };
-		BCC483251C581DC12893469C /* Pods_Chofy_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chofy_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		691BAB587ECBCCCB077B4B0C /* Pods-Chofy App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chofy App.release.xcconfig"; path = "Target Support Files/Pods-Chofy App/Pods-Chofy App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				019C2EA1DBAC9704131EF6DB /* Pods_Chofy_App.framework in Frameworks */,
+				BF8719C744EB7ACE092DEB0F /* libPods-Chofy App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +48,7 @@
 				26FC454B2628918600FF4C43 /* Chofy App */,
 				26FC454A2628918600FF4C43 /* Products */,
 				47C2B32D73733290665802A9 /* Pods */,
-				5AB3F90A15D58187B820C17B /* Frameworks */,
+				2D32A5F9D25FEC019395B92E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,21 +74,21 @@
 			path = "Chofy App";
 			sourceTree = "<group>";
 		};
+		2D32A5F9D25FEC019395B92E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16AF193FD5E573485BEA9743 /* libPods-Chofy App.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		47C2B32D73733290665802A9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				70178E09BE0ED9EFA213A472 /* Pods-Chofy App.debug.xcconfig */,
-				866AE7438473D2E57110650F /* Pods-Chofy App.release.xcconfig */,
+				174131D1583BAACD304C589B /* Pods-Chofy App.debug.xcconfig */,
+				691BAB587ECBCCCB077B4B0C /* Pods-Chofy App.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		5AB3F90A15D58187B820C17B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BCC483251C581DC12893469C /* Pods_Chofy_App.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,11 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26FC455D2628918900FF4C43 /* Build configuration list for PBXNativeTarget "Chofy App" */;
 			buildPhases = (
-				7798237976D1C4F3C007FB84 /* [CP] Check Pods Manifest.lock */,
+				7CA992E424681631C6BAF315 /* [CP] Check Pods Manifest.lock */,
 				26FC45452628918600FF4C43 /* Sources */,
 				26FC45462628918600FF4C43 /* Frameworks */,
 				26FC45472628918600FF4C43 /* Resources */,
-				55F95B0EB5DBA17A359C1878 /* [CP] Embed Pods Frameworks */,
+				E7774BD0D716948BFF8DBF05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,24 +159,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		55F95B0EB5DBA17A359C1878 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7798237976D1C4F3C007FB84 /* [CP] Check Pods Manifest.lock */ = {
+		7CA992E424681631C6BAF315 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,6 +179,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7774BD0D716948BFF8DBF05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chofy App/Pods-Chofy App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -284,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -339,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -351,7 +351,7 @@
 		};
 		26FC455E2628918900FF4C43 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70178E09BE0ED9EFA213A472 /* Pods-Chofy App.debug.xcconfig */;
+			baseConfigurationReference = 174131D1583BAACD304C589B /* Pods-Chofy App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -372,7 +372,7 @@
 		};
 		26FC455F2628918900FF4C43 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 866AE7438473D2E57110650F /* Pods-Chofy App.release.xcconfig */;
+			baseConfigurationReference = 691BAB587ECBCCCB077B4B0C /* Pods-Chofy App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

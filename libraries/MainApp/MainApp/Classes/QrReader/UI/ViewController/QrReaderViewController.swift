@@ -13,7 +13,12 @@ import ChofyExtensions
 import ChofyStyleGuide
 
 protocol QrReaderViewOutput {
+    var permissionsStatusGranted: Observable<Bool> { get }
+    
+    func didLoad()
+    func requestPermissions()
     func dismissQr()
+    func qrNotWorking()
     func sendCode(_ code: String)
 }
 
@@ -22,7 +27,7 @@ final class QrReaderViewController: UIViewController {
     // MARK: Properties
     private let disposeBag: DisposeBag = DisposeBag()
     private let presenter: QrReaderViewOutput
-    private var captureSession: AVCaptureSession?
+    private var captureSession: AVCaptureSession = AVCaptureSession()
     private var previewLayer: ScannerOverlayPreviewLayer?
     private var metadataOutput: AVCaptureMetadataOutput?
     
@@ -64,29 +69,27 @@ final class QrReaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        presenter.didLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !(captureSession?.isRunning ?? true) {
-            captureSession?.startRunning()
+        if !(captureSession.isRunning) {
+            captureSession.startRunning()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if (captureSession?.isRunning ?? false) {
-            captureSession?.stopRunning()
+        if (captureSession.isRunning) {
+            captureSession.stopRunning()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        metadataOutput = AVCaptureMetadataOutput()
-        setupCaptureSession()
-        setupPreviewLayer()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -102,7 +105,7 @@ extension QrReaderViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from connection: AVCaptureConnection) {
-        captureSession?.stopRunning()
+        captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
@@ -120,6 +123,17 @@ private extension QrReaderViewController {
     func setup() {
         setViewBackground(color: ChofyColors.screenBackground)
         setupCloseBtnRx()
+        presenter.permissionsStatusGranted
+            .subscribe(onNext: { [weak self] granted in
+                guard let self = self else { return }
+                granted ? self.setupCamera() : self.presenter.requestPermissions()
+            }).disposed(by: disposeBag)
+    }
+    
+    func setupCamera() {
+        metadataOutput = AVCaptureMetadataOutput()
+        setupCaptureSession()
+        setupPreviewLayer()
     }
     
     func setupCloseBtnRx() {
@@ -134,40 +148,21 @@ private extension QrReaderViewController {
     }
     
     func setupCaptureSession() {
-        captureSession = AVCaptureSession()
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
-              let metadataOutput = metadataOutput else {
-            return
-        }
-        
-        let videoInput: AVCaptureDeviceInput
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            return
-        }
-        
-        if captureSession?.canAddInput(videoInput) ?? false {
-            captureSession?.addInput(videoInput)
-        } else {
+              let videoInput: AVCaptureDeviceInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
+              let metadataOutput = metadataOutput,
+              captureSession.canAddInput(videoInput),
+              captureSession.canAddOutput(metadataOutput) else {
             captureSessionFailed()
             return
         }
-        if captureSession?.canAddOutput(metadataOutput) ?? false {
-            captureSession?.addOutput(metadataOutput)
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
-        } else {
-            captureSessionFailed()
-            return
-        }
+        captureSession.addInput(videoInput)
+        captureSession.addOutput(metadataOutput)
+        metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
     }
     
     func setupPreviewLayer() {
-        guard let captureSession = captureSession else {
-            captureSessionFailed()
-            return
-        }
         let heightQrReader: CGFloat = qrViewContainer.layer.frame.height * 0.6
         let widthQrReader: CGFloat = heightQrReader * 0.5
         previewLayer = ScannerOverlayPreviewLayer(session: captureSession)
@@ -182,6 +177,6 @@ private extension QrReaderViewController {
     }
     
     func captureSessionFailed() {
-        print("Qr configuration failed")
+        presenter.qrNotWorking()
     }
 }
