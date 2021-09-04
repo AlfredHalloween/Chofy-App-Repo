@@ -16,7 +16,7 @@ protocol GenericSelectorOptionDataSourceDelegate: AnyObject {
 
 final class GenericSelectorOptionDataSource: NSObject {
     
-    var items: [ListDiffable] = []
+    private var items: [ListDiffable] = []
     private weak var delegate: GenericSelectorOptionDataSourceDelegate?
     private lazy var selectorSectionController: GenericSelectorOptionSectionController = {
        return GenericSelectorOptionSectionController(delegate: self)
@@ -24,6 +24,10 @@ final class GenericSelectorOptionDataSource: NSObject {
     
     init(delegate: GenericSelectorOptionDataSourceDelegate) {
         self.delegate = delegate
+    }
+    
+    func updateDataSource(items: [ListDiffable]) {
+        self.items = items
     }
 }
 

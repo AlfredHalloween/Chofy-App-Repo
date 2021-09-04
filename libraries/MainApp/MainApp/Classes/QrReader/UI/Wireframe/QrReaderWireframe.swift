@@ -14,6 +14,8 @@ protocol QrReaderWireframeDelegate {
     
     func showQrReader(presenter: QrReaderPresenterDelegate)
     func dismissQr(completion: QREmptyCompletion)
+    func showPermissionsModal(mainAction: @escaping GenericModuleCompletion,
+                              secondaryAction: @escaping GenericModuleCompletion)
     func showToast(message: String, isWarning: Bool)
 }
 
@@ -40,6 +42,18 @@ extension QrReaderWireframe: QrReaderWireframeDelegate {
     func dismissQr(completion: QREmptyCompletion) {
         topController?.dismiss(animated: true,
                                completion: completion)
+    }
+    
+    func showPermissionsModal(mainAction: @escaping GenericModuleCompletion,
+                              secondaryAction: @escaping GenericModuleCompletion) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            guard let baseController = self.topController else { return }
+            let module: GenericModalModule = GenericModalModule(with: baseController,
+                                                                input: QrReaderModalInput(),
+                                                                mainActionCompletion: mainAction,
+                                                                secondaryActionCompletion: secondaryAction)
+            module.showGenericModal()
+        }
     }
     
     func showToast(message: String, isWarning: Bool) {

@@ -115,7 +115,7 @@ private extension SearchViewController {
                 guard let self = self else {
                     return
                 }
-                self.dataSource?.sections = sections
+                self.dataSource?.updateDataSource(sections: sections)
                 self.adapter.performUpdates(animated: true)
             }).disposed(by: disposeBag)
     }

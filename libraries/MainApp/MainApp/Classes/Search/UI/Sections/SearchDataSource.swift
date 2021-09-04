@@ -17,10 +17,14 @@ final class SearchDataSource: NSObject {
     
     // MARK: Properties
     private var delegate: SearchDataSourceDelegate?
-    var sections: [ListDiffable] = []
+    private var sections: [ListDiffable] = []
     
     init(delegate: SearchDataSourceDelegate) {
         self.delegate = delegate
+    }
+    
+    func updateDataSource(sections: [ListDiffable]) {
+        self.sections = sections
     }
 }
 

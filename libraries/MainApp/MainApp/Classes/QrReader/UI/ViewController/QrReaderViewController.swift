@@ -13,8 +13,6 @@ import ChofyExtensions
 import ChofyStyleGuide
 
 protocol QrReaderViewOutput {
-    var permissionsStatusGranted: Observable<Bool> { get }
-    
     func didLoad()
     func requestPermissions()
     func dismissQr()
@@ -123,11 +121,13 @@ private extension QrReaderViewController {
     func setup() {
         setViewBackground(color: ChofyColors.screenBackground)
         setupCloseBtnRx()
+        /*
         presenter.permissionsStatusGranted
             .subscribe(onNext: { [weak self] granted in
                 guard let self = self else { return }
                 granted ? self.setupCamera() : self.presenter.requestPermissions()
             }).disposed(by: disposeBag)
+ */
     }
     
     func setupCamera() {
