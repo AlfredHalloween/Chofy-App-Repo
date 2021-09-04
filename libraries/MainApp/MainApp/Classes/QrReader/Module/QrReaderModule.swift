@@ -11,6 +11,7 @@ typealias QRReaderCompletion = (String) -> ()
 
 final class QrReaderModule {
     
+    // MARK: Properties
     private let presenter: QrReaderPresenterDelegate
     
     init(with baseController: UIViewController,

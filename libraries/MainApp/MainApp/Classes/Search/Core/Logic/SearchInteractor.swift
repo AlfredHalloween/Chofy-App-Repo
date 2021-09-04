@@ -11,6 +11,7 @@ import RxCocoa
 
 final class SearchInteractor {
     
+    // MARK: Properties
     let dataManager: SearchDataManager = SearchDataManager()
     
     func getProducts(name: String) -> Single<[Product]> {

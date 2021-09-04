@@ -7,12 +7,14 @@
 
 import Foundation
 
+// MARK: Company DTO
 struct Company: Codable {
     var id: Int?
     var name: String?
     var logo: String?
 }
 
+// MARK: Product DTO
 struct Product: Codable {
     var id: Int?
     var barCode: String?

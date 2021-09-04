@@ -9,6 +9,7 @@ import Foundation
 
 final class SearchModule {
     
+    // MARK: Properties
     private let presenter: SearchPresenterDelegate
     
     init() {

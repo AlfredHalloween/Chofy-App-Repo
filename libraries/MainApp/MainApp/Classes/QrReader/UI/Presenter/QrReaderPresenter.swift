@@ -19,9 +19,6 @@ final class QrReaderPresenter {
     // MARK: Properties
     private var completion: QRReaderCompletion?
     private let wireframe: QrReaderWireframeDelegate
-    
-    // MARK: RxProperties
-    private let permissionsStatusGrantedSubject: PublishSubject = PublishSubject<Bool>()
         
     init(with wireframe: QrReaderWireframeDelegate,
          completion: QRReaderCompletion?) {
@@ -32,12 +29,8 @@ final class QrReaderPresenter {
 
 extension QrReaderPresenter: QrReaderPresenterDelegate {
     
-    var permissionsStatusGranted: Observable<Bool> {
-        return permissionsStatusGrantedSubject
-    }
-    
     func didLoad() {
-        permissionsStatusGrantedSubject.onNext(AVCaptureDevice.authorizationStatus(for: .video) == .authorized)
+        requestPermissions()
     }
     
     func showQrReader() {
@@ -58,16 +51,39 @@ extension QrReaderPresenter: QrReaderPresenterDelegate {
     }
     
     func requestPermissions() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            AVCaptureDevice.requestAccess(for: .video) { [weak self] response in
-                guard let self = self else { return }
-                if response {
-                    
-                } else {
-                    self.qrNotWorking()
-                }
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined:
+            requestAccess()
+        case .denied, .restricted:
+            showPermissionAlert()
+        case .authorized:
+            showPermissionAlert()
+        @unknown default:
+            break
+        }
+        
+    }
+    
+    func requestAccess() {
+        AVCaptureDevice.requestAccess(for: .video) { [weak self] response in
+            guard let self = self else { return }
+            if response {
+                
+            } else {
+                self.qrNotWorking()
             }
         }
+    }
+    
+    func showPermissionAlert() {
+        let main: GenericModuleCompletion = {
+            print("Use main action")
+        }
+        let secondary: GenericModuleCompletion = {
+            print("Use secondary action")
+        }
+        wireframe.showPermissionsModal(mainAction: main,
+                                       secondaryAction: secondary)
     }
     
     func qrNotWorking() {

@@ -94,7 +94,7 @@ private extension GenericSelectorViewController {
         presenter.updateDriver
             .drive(onNext: { [weak self] diffable in
                 guard let self = self else { return }
-                self.dataSource?.items = diffable
+                self.dataSource?.updateDataSource(items: diffable)
                 self.adapter.performUpdates(animated: true)
             }).disposed(by: disposeBag)
         
