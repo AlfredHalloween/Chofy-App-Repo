@@ -9,16 +9,18 @@ import Foundation
 import Alamofire
 import RxSwift
 import RxCocoa
+import Combine
 
 open class RequestBaseManager {
     
     public init() { }
     
     open func single<T: Decodable>(url: String,
-                              type: T.Type,
-                              method: HTTPMethod,
-                              parameters: Parameters? = nil,
-                              headers: HTTPHeaders? = nil) -> Single<T> {
+                                   type: T.Type,
+                                   method: HTTPMethod,
+                                   parameters: Parameters? = nil,
+                                   headers: HTTPHeaders? = nil,
+                                   decodingKey: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> Single<T> {
         let encoder: ParameterEncoding = method == .get ? URLEncoding.default : JSONEncoding.default
         return Single.create { single in
             let disposables: Disposable = Disposables.create()
@@ -37,7 +39,9 @@ open class RequestBaseManager {
                     switch statusCode {
                     case 200, 201:
                         do {
-                            let data = try JSONDecoder().decode(type, from: response)
+                            let jsonDecoder = JSONDecoder()
+                            jsonDecoder.keyDecodingStrategy = decodingKey
+                            let data = try jsonDecoder.decode(type, from: response)
                             single(.success(data))
                             return
                         } catch {

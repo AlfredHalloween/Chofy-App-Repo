@@ -12,9 +12,9 @@ import RxCocoa
 
 final class SearchDataManager: RequestBaseManager {
     
-    func getProducts(name: String) -> Single<[Product]> {
-        return single(url: String(format: "%@%@", NetworkCommons.urlBase, "/find-products/\(name)"),
-                      type: [Product].self,
+    func getProducts(name: String) -> Single<ProductPage> {
+        return single(url: "http://127.0.0.1:5000/store",//String(format: "%@%@", NetworkCommons.urlBase, "/find-products/\(name)"),
+                      type: ProductPage.self,
                       method: .get)
     }
     

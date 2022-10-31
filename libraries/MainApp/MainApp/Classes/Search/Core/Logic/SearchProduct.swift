@@ -8,14 +8,18 @@
 import Foundation
 
 // MARK: Company DTO
-struct Company: Codable {
+struct Company: Decodable {
     var id: Int?
     var name: String?
     var logo: String?
 }
 
+struct ProductPage: Decodable {
+    var products: [Product]
+}
+
 // MARK: Product DTO
-struct Product: Codable {
+struct Product: Decodable {
     var id: Int?
     var barCode: String?
     var name: String?

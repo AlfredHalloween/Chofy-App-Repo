@@ -30,21 +30,12 @@ final class SearchViewController: UIViewController {
        return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
     
+    private lazy var searchBarController: UISearchController = {
+        let search = UISearchController()
+        return search
+    }()
+    
     // MARK: Outlets
-    @IBOutlet private weak var searchBar: UITextField! {
-        didSet {
-            searchBar.backgroundColor = UIColor.white
-            searchBar.attributedPlaceholder = NSAttributedString(
-                string: "Buscar",
-                attributes: [
-                    NSAttributedString.Key.font: ChofyFontCatalog.headlineRegular,
-                    NSAttributedString.Key.foregroundColor: ChofyColors.placeholderColor
-                ])
-            searchBar.keyboardType = .default
-            searchBar.font = ChofyFontCatalog.headlineRegular
-            searchBar.textColor = ChofyColors.textfieldColor
-        }
-    }
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
             collectionView.backgroundColor = UIColor.clear
@@ -91,10 +82,20 @@ private extension SearchViewController {
     
     func setup() {
         setViewBackground(color: ChofyColors.screenBackground)
+        setupSearchBar()
         hideKeyboardWhenTappedAround()
         setupCollection()
         setupRx()
         presenter.didLoad()
+    }
+    
+    func setupSearchBar() {
+        searchBarController.searchBar.rx.text
+            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] search in
+                self?.presenter.beginSearchProducts(name: search ?? "")
+            }).disposed(by: disposeBag)
+        navigationItem.searchController = searchBarController
     }
     
     func setupCollection() {
@@ -105,7 +106,6 @@ private extension SearchViewController {
     
     func setupRx() {
         setupSectionsRx()
-        setupTextfieldRx()
         setupQRBtnRx()
     }
     
@@ -117,18 +117,6 @@ private extension SearchViewController {
                 }
                 self.dataSource?.updateDataSource(sections: sections)
                 self.adapter.performUpdates(animated: true)
-            }).disposed(by: disposeBag)
-    }
-    
-    func setupTextfieldRx() {
-        searchBar.rx.text
-            .observe(on: MainScheduler.instance)
-            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] text in
-                guard let self = self else {
-                    return
-                }
-                self.presenter.beginSearchProducts(name: text ?? "")
             }).disposed(by: disposeBag)
     }
     

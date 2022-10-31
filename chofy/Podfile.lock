@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.3)
+  - Alamofire (5.4.4)
   - ChofyExtensions (0.1.0):
     - Alamofire (~> 5.2)
     - IGListKit (~> 4.0.0)
@@ -26,9 +26,9 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -64,7 +64,7 @@ EXTERNAL SOURCES:
     :path: "../libraries/MainApp"
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   ChofyExtensions: fbdc2d09e559a47a8d59aa3cc0db5c3965002aa4
   ChofyStyleGuide: 21506c83796ec25b19ebcdbf8caa2318f31a27a4
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
@@ -74,9 +74,9 @@ SPEC CHECKSUMS:
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
 PODFILE CHECKSUM: ad826c03c9435b00c81176474d74dee452532a6c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

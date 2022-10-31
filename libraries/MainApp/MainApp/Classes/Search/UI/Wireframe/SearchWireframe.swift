@@ -35,8 +35,11 @@ extension SearchWireframe: SearchWireframeDelegate {
     
     func getSearchTab(presenter: SearchPresenterDelegate) -> UIViewController {
         let vc = SearchViewController(with: presenter)
-        baseController = vc
-        return vc
+        let navigation = UINavigationController()
+        navigation.viewControllers = [vc]
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        baseController = navigation
+        return navigation
     }
     
     func showQRScreen(completion: @escaping QRReaderCompletion) {

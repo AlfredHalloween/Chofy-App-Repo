@@ -104,7 +104,7 @@ private extension SearchPresenter {
             .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] products in
                 guard let self = self else { return }
-                let productsDiffable = SearchResultsDiffable(products: products)
+                let productsDiffable = SearchResultsDiffable(products: products.products)
                 self.sectionsSubject.onNext([productsDiffable])
             }, onError: { error in
                 print(error.localizedDescription)

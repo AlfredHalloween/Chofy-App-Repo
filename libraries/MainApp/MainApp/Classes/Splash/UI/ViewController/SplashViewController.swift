@@ -17,10 +17,18 @@ final class SplashViewController: UIViewController {
     // MARK: Properties
     private let presenter: SplashViewOutput
     
+    // MARK: Outlet
+    private lazy var appTitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.numberOfLines = 0
+        label.font = ChofyFontCatalog.h2Bold
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     init(with presenter: SplashViewOutput) {
         self.presenter = presenter
-        let name: String = String(describing: SplashViewController.self)
-        super.init(nibName: name, bundle: MainBundle.bundle)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -30,6 +38,16 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewBackground(color: ChofyColors.screenBackground)
+        setupConstraints()
         presenter.didLoad()
+        appTitleLabel.text = "Chofy App"
+    }
+    
+    private func setupConstraints() {
+        view.addSubview(appTitleLabel)
+        NSLayoutConstraint.activate([
+            appTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            appTitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
     }
 }
